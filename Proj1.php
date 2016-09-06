@@ -35,65 +35,35 @@ if (mysqli_query($conn, $sales)) {
 	echo "<p>Error creating table 'Sales'</p>";
 }
 
-//shampoo and hair products
+//table of all products
 $data = "INSERT INTO Sales (prodname, category, price, qtyremaining, qtysold)
-	VALUES ('Fancy Shampoo', 'Hair', '13', '65', '25');";
-$data .= "INSERT INTO Sales (prodname, category, price, qtyremaining, qtysold)
-	VALUES ('Average Shampoo', 'Hair', '8', '195', '95');";
-$data .= "INSERT INTO Sales (prodname, category, price, qtyremaining, qtysold)
-	VALUES ('Kenny's Conditioner', 'Hair', '10', '67', '43');";
-$data .= "INSERT INTO Sales (prodname, category, price, qtyremaining, qtysold)
-	VALUES ('Clean Hair Shampoo', 'Hair', '10', '106', '16');";
+	VALUES 
+	('Fancy Shampoo', 'Hair', '13', '65', '25'),
+	('Average Shampoo', 'Hair', '8', '195', '95'),
+	('Kennys Conditioner', 'Hair', '10', '67', '43'),
+	('Clean Hair Shampoo', 'Hair', '10', '106', '16'),
+	('Pain-Free Panadol', 'Non-Presc', '5', '287', '123'),
+	('Amazing Aspirin', 'Non-Presc', '10', '87', '13'),
+	('Pain-Away', 'Non-Presc', '11', '457', '168'),
+	('Pain-Away Rapid', 'Non-Presc', '15', '160', '62'),
+	('Dans Decongestant', 'Non-Presc', '16', '45', '6'),	
+	('Flu-Away', 'Non-Presc', '12', '89', '28'),
+	('Taldroxin', 'Non-Presc', '10', '161', '39'),
+	('Soft-Bands', 'Bandages/Band-aids', '12', '211', '89'),
+	('Tuff Strips', 'Bandages/Band-aids', '16', '144', '86'),
+	('Band-Aids', 'Bandages/Band-aids', '10', '273', '67'),
+	('Cotton Bandage', 'Bandages/Band-aids', '14', '56', '4'),
+	('Compression Bandage', 'Bandages/Band-aids', '20', '37', '3'),
+	('Face Cleanser', 'Face Care', '11', '97', '33'),
+	('Gentle Wash', 'Face Care', '16', '65', '13'),
+	('Face Scrub', 'Face Care', '7', '110', '76'),
+	('Skin-Glow', 'Face Care', '25', '51', '9'),
+	('Fresh Wash', 'Face Care', '16', '78', '12'),
+	('QTips', 'Misc', '5', '178', '85'),
+	('Ear Cleaners', 'Misc', '6', '154', '16'),
+	('Cotton Swabs', 'Misc', '4', '129', '21')";
 
-//non-presc medicine
-$data .= "INSERT INTO Sales (prodname, category, price, qtyremaining, qtysold)
-	VALUES ('Pain-Free Panadol', 'Non-Presc', '5', '287', '123');";
-$data .= "INSERT INTO Sales (prodname, category, price, qtyremaining, qtysold)
-	VALUES ('Amazing Aspirin', 'Non-Presc', '10', '87', '13');";
-$data .= "INSERT INTO Sales (prodname, category, price, qtyremaining, qtysold)
-	VALUES ('Pain-Away', 'Non-Presc', '11', '457', '168');";
-$data .= "INSERT INTO Sales (prodname, category, price, qtyremaining, qtysold)
-	VALUES ('Pain-Away Rapid', 'Non-Presc', '15', '160', '62');";
-$data .= "INSERT INTO Sales (prodname, category, price, qtyremaining, qtysold)
-	VALUES ('Dan's Decongestant', 'Non-Presc', '16', '45', '6');";
-$data .= "INSERT INTO Sales (prodname, category, price, qtyremaining, qtysold)
-	VALUES ('Flu-Away', 'Non-Presc', '12', '89', '28');";
-$data .= "INSERT INTO Sales (prodname, category, price, qtyremaining, qtysold)
-	VALUES ('Taldroxin', 'Non-Presc', '10', '161', '39');";
-
-//bandages and bandaids
-$data .= "INSERT INTO Sales (prodname, category, price, qtyremaining, qtysold)
-	VALUES ('Soft-Bands', 'Bandages/Band-aids', '12', '211', '89');";
-$data .= "INSERT INTO Sales (prodname, category, price, qtyremaining, qtysold)
-	VALUES ('Tuff Strips', 'Bandages/Band-aids', '16', '144', '86');";
-$data .= "INSERT INTO Sales (prodname, category, price, qtyremaining, qtysold)
-	VALUES ('Band-Aids', 'Bandages/Band-aids', '10', '273', '67');";
-$data .= "INSERT INTO Sales (prodname, category, price, qtyremaining, qtysold)
-	VALUES ('Cotton Bandage', 'Bandages/Band-aids', '14', '56', '4');";
-$data .= "INSERT INTO Sales (prodname, category, price, qtyremaining, qtysold)
-	VALUES ('Compression Bandage', 'Bandages/Band-aids', '20', '37', '3');";
-
-//face care
-$data .= "INSERT INTO Sales (prodname, category, price, qtyremaining, qtysold)
-	VALUES ('Face Cleanser', 'Face Care', '11', '97', '33');";
-$data .= "INSERT INTO Sales (prodname, category, price, qtyremaining, qtysold)
-	VALUES ('Gentle Wash', 'Face Care', '16', '65', '13');";
-$data .= "INSERT INTO Sales (prodname, category, price, qtyremaining, qtysold)
-	VALUES ('Face Scrub', 'Face Care', '7', '110', '76');";
-$data .= "INSERT INTO Sales (prodname, category, price, qtyremaining, qtysold)
-	VALUES ('Skin-Glow', 'Face Care', '25', '51', '9');";
-$data .= "INSERT INTO Sales (prodname, category, price, qtyremaining, qtysold)
-	VALUES ('Fresh Wash', 'Face Care', '16', '78', '12');";
-
-//misc
-$data .= "INSERT INTO Sales (prodname, category, price, qtyremaining, qtysold)
-	VALUES ('QTips', 'Misc', '5', '178', '85');";
-$data .= "INSERT INTO Sales (prodname, category, price, qtyremaining, qtysold)
-	VALUES ('Ear Cleaners', 'Misc', '6', '154', '16');";
-$data .= "INSERT INTO Sales (prodname, category, price, qtyremaining, qtysold)
-	VALUES ('Cotton Swabs', 'Misc', '4', '129', '21');";
-
-if (mysqli_multi_query($conn, $data)) {
+if (mysqli_query($conn, $data)) {
 	echo "<p>New records added successfully</p>";
 } else {
 	echo "Error: " . $data . "<br>" . mysqli_error($conn);
