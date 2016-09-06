@@ -21,10 +21,10 @@ if (!$conn) {
 }
 
 if(!empty($_POST["remove_id"])) {
-	$pname = ($_POST["remove_id"]);
+	$pid = ($_POST["remove_id"]);
 }
 
-$delete = "DELETE FROM Sales WHERE prodname = $pname"
+$delete = "DELETE FROM Sales WHERE prodid = '$pid'";
 
 $removed = @mysqli_query($conn, $delete);
 
