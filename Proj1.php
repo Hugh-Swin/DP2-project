@@ -10,12 +10,12 @@
 <?php
 session_start();
 
-$servername = "host"
-$username = "username"
-$pass = "password"
-$dbname = "salesDB"
+$server = "127.0.0.1";
+$user = "root";
+$pass = "pass";
+$dbname = "salesdb";
 
-$conn = mysqli_connect($servername, $username, $pass, $dbname);
+$conn = mysqli_connect($server, $user, $pass, $dbname);
 if (!$conn) {
 	echo "<p>Database connection failure</p>";
 }
@@ -30,7 +30,7 @@ $sales = "CREATE TABLE Sales (
 	)";
 
 if (mysqli_query($conn, $sales)) {
-	echo "<p>Table 'Sales' created succesfully</p>"
+	echo "<p>Table 'Sales' created succesfully</p>";
 } else {
 	echo "<p>Error creating table 'Sales'</p>";
 }
@@ -106,8 +106,8 @@ mysqli_close($conn);
 	<fieldset>
 		<h4>Write the id number of the product you would like to delete the entry for in the text box below:</h4>
 		<textarea name="remove_id" id="remove_id" rows="1" cols="30"></textarea>
+		<p><input type="submit" id="submit" value="Submit"/><p>
 	</fieldset>
-	<p><input type="submit" id="submit" value="Submit"/><p>
 </form>
 
 </html>
