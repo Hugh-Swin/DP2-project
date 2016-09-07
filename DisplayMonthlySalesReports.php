@@ -1,17 +1,5 @@
-<HTML XMLns="http://www.w3.org/1999/xHTML"> 
+<!DOCTYPE html>
 <head> 
-<style>
-#tableOut, td, th 
-{
-  border: 1px solid black;
-}
-
-th 
-{
-  background-color: black;
-  color: white;
-}
-</style>
 <title>Display Monthly Sales Reports</title> 
 </head> 
 
