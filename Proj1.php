@@ -9,17 +9,14 @@
 
 <?php
 session_start();
-
 $server = "127.0.0.1";
 $user = "root";
 $pass = "pass";
 $dbname = "salesdb";
-
 $conn = mysqli_connect($server, $user, $pass, $dbname);
 if (!$conn) {
 	echo "<p>Database connection failure</p>";
 }
-
 $sales = "CREATE TABLE Sales (
 	prodid INT(5) AUTO_INCREMENT PRIMARY KEY,
 	prodname VARCHAR(20),
@@ -28,13 +25,11 @@ $sales = "CREATE TABLE Sales (
 	qtyremaining INT(10),
 	qtysold INT(10)
 	)";
-
 if (mysqli_query($conn, $sales)) {
 	echo "<p>Table 'Sales' created succesfully</p>";
 } else {
 	echo "<p>Error creating table 'Sales'</p>";
 }
-
 //table of all products
 $data = "INSERT INTO Sales (prodname, category, price, qtyremaining, qtysold)
 	VALUES 
@@ -62,13 +57,11 @@ $data = "INSERT INTO Sales (prodname, category, price, qtyremaining, qtysold)
 	('QTips', 'Misc', '5', '178', '85'),
 	('Ear Cleaners', 'Misc', '6', '154', '16'),
 	('Cotton Swabs', 'Misc', '4', '129', '21')";
-
 if (mysqli_query($conn, $data)) {
 	echo "<p>New records added successfully</p>";
 } else {
 	echo "Error: " . $data . "<br>" . mysqli_error($conn);
 }
-
 mysqli_close($conn);
 ?>
 
@@ -80,4 +73,16 @@ mysqli_close($conn);
 	</fieldset>
 </form>
 
+<form id="modify" method="post" novalidate="novalidate" action="modify_process.php">
+	<fieldset>
+		<h4>Write the value of the product id, then change the other values as needed.</h4>
+		Product Id:<textarea name="prodid" id="prodid" rows="1" cols="30"></textarea>
+		Product Name:<textarea name="prodname" id="prodname" rows="1" cols="30"></textarea>
+		Category:<textarea name="category" id="category" rows="1" cols="30"></textarea>
+		Price:<textarea name="price" id="price" rows="1" cols="30"></textarea>
+		Quantity:<textarea name="qtyremaining" id="qtyremaining" rows="1" cols="30"></textarea>
+		Amount Sold:<textarea name="qtysold" id="qtysold" rows="1" cols="30"></textarea>
+		<p><input type="submit" id="submit" value="Submit"/><p>
+	</fieldset>
+</form>
 </html>
