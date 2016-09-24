@@ -17,7 +17,13 @@
 	<option value="all">All</option>
 	<option value="jun">June</option>
 	<option value="jul">July</option>
-
+</select> 
+<select name="selectWeek" id="selectWeek">
+	<option value="all">All</option>
+	<option value="1">1</option>
+	<option value="2">2</option>
+	<option value="3">3</option>
+	<option value="4">4</option>
 </select> 
 		<input type="submit" id="change" value="Display"/>
 </form>
