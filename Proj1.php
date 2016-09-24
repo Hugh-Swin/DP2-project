@@ -12,47 +12,23 @@
 <p><a href="./reset_database.php">Start/Reset the Database (Drops table, then re-adds with default data)</a></p>
 </br>
 
+<form id="modify" method="post" novalidate="novalidate" action="">
+<select name="selectMonth" id="selectMonth">
+	<option value="all">All</option>
+	<option value="jun">June</option>
+	<option value="jul">July</option>
+
+</select> 
+		<input type="submit" id="change" value="Display"/>
+</form>
+
 <!-- implement drop down box to select which month data is from here -->
-
 <?php
-session_start();
-
-$server = "127.0.0.1";
-$user = "root";
-$pass = "pass";
-$dbname = "salesdb";
-
-$conn = mysqli_connect($server, $user, $pass, $dbname);
-if (!$conn) {
-	echo "<p>Database connection failure</p>";
-}
-
-$sql = "SELECT * FROM SALES WHERE month = 'Jun'";
-$result = mysqli_query($conn, $sql);
-
-if ($result->num_rows > 0) {
-    echo "<table><tr><th>ID</th>
-	<th>Name</th>
-	<th>Category</th>
-	<th>Price</th>
-	<th>Remaining Stock</th>
-	<th>Sold</th>
-	<th>Month</th></tr>";
-	while($row = $result->fetch_assoc()) {
-        echo "<tr><td>".$row["prodid"]."</td>
-		<td>".$row["prodname"]."</td> 
-		<td>".$row["category"]."</td> 
-		<td>".$row["price"]."</td>
-		<td>".$row["qtyremaining"]." </td>
-		<td>".$row["qtysold"]." </td>
-		<td>".$row["month"]." </td>
-		</tr>";
-    }
-	echo "</table>";
-}
-
-mysqli_close($conn);
+	include_once "display_monthly_sales_report.php";
 ?>
+<div id="salestable">
+
+</div>
 
 <!-- forms to edit table go here -->
 </br>

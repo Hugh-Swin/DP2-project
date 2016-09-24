@@ -6,47 +6,48 @@
 <body>
 <?php
 session_start();
+
 $server = "127.0.0.1";
 $user = "root";
 $pass = "pass";
 $dbname = "salesdb";
 
-$conn = @mysqli_connect($server, $user, $pass, $dbname);
+$conn = mysqli_connect($server, $user, $pass, $dbname);
 if (!$conn) {
 	echo "<p>Database connection failure</p>";
-	
-$connect = mysqli_select_db($conn, $dbname)
-or die('Database not available');
-if (!$connect){
-die("<p>The database server is not available.</p>" .mysqli_error());
 }
-echo "<p>Successfully connected to the database server.</p>";
+$selectOption = "";
+$selectOption = isset($_POST["selectMonth"]) ? $_POST["selectMonth"] : 'all'; 
+#Check if its empty, set it to "all" if it is, make it always display the data.
+if($selectOption != "all"){
+	$sql = "SELECT * FROM SALES WHERE month = '$selectOption'";
+}else{
+	$sql = "SELECT * FROM SALES";
+}
+$result = mysqli_query($conn, $sql);
 
-// set up the SQL query string - we will retrieve the whole
-// record that matches the name
-
-
-$SQLstring = "select * from sales";
-$queryResult = @mysqli_query($conn, $SQLstring)
-		Or die ("<p>Unable to query the sales table.</p>"."<p>Error code ". mysqli_errno($conn). ": ".mysqli_error($conn)). "</p>";
-		prodname, category, price, qtyremaining, qtysold
-echo "<table width='100%' border='1'>";
-echo "<th>prodname</th><th>category</th><th>Price</th><th>qtyremaining</th><th>qtysold</th>";
-	$row = mysqli_fetch_row($queryResult);
-	
-	while ($row) {
-		echo "<tr><td>{$row[1]}</td>";
-		echo "<td>{$row[2]}</td>";
-		echo "<td>{$row[3]}</td>";
-		echo "<td>{$row[4]}</td>";
-		echo "<td>{$row[5]}</td></tr>";
-		$row = mysqli_fetch_row($queryResult);
-	}
+if ($result->num_rows > 0) {
+    echo "<table><tr><th>ID</th>
+	<th>Name</th>
+	<th>Category</th>
+	<th>Price</th>
+	<th>Remaining Stock</th>
+	<th>Sold</th>
+	<th>Month</th></tr>";
+	while($row = $result->fetch_assoc()) {
+        echo "<tr><td>".$row["prodid"]."</td>
+		<td>".$row["prodname"]."</td> 
+		<td>".$row["category"]."</td> 
+		<td>".$row["price"]."</td>
+		<td>".$row["qtyremaining"]." </td>
+		<td>".$row["qtysold"]." </td>
+		<td>".$row["month"]." </td>
+		</tr>";
+    }
 	echo "</table>";
+}
 
-
-	mysqli_close($conn);
-
+mysqli_close($conn);
 ?>
 </body> 
 </html>
