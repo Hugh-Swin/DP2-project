@@ -23,7 +23,6 @@ $selectWeek = isset($_POST["selectWeek"]) ? $_POST["selectWeek"] : 'all';
 #Check if its empty, set it to "all" if it is, make it always display the data.
 #Have to do this, as the sql query CANNOT contain "all"
 $sql = "SELECT * FROM SALES";
-echo ("Selectmonth = " . $selectMonth . "SelectWeek = " . $selectWeek);
 if($selectMonth !== "all" && $selectWeek !== "all"){ #Neither are all
 	$sql = "SELECT * FROM SALES WHERE month = '$selectMonth' AND week = '$selectWeek'";
 }
