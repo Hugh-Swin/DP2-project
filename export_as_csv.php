@@ -11,14 +11,14 @@ header('Content-Disposition: attachment; filename=salesdata.csv');
 // create a file pointer connected to the output stream
 $output = fopen('php://output', 'w');
 
-// output the column headings
+// create an array with all of the sales column names
 fputcsv($output, array('Prodid', 'Prodname', 'Category','Price','QtyRemaining','QtySold','Month','Week'));
 
-// fetch the data
+// create the query
 mysql_connect($server, $user, $pass);
 mysql_select_db($dbname);
 $rows = mysql_query('SELECT * FROM SALES');
 
-// loop over the rows, outputting them
+// loop over the rows and output them in the csv file
 while ($row = mysql_fetch_assoc($rows)) fputcsv($output, $row);
 ?>
