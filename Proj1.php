@@ -36,6 +36,10 @@
 
 </div>
 
+<form id="export" method="post" novalidate="novalidate" action="export_as_csv.php">
+		<h4>Export the sales data as a CSV file.</h4>
+		<p><input type="submit" id="submit" value="Export"/><p>
+</form>
 <!-- forms to edit table go here -->
 </br>
 </br>
