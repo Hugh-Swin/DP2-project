@@ -30,4 +30,10 @@ p,nav {
 th, td {
     padding: 5px;
     text-align: left;
+	border: solid thin;
+    padding: 0.5rem 2rem;
+}
+table{
+	border: solid thin; 
+	border-collapse: collapse; 
 }
