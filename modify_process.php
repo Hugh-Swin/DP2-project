@@ -26,6 +26,7 @@ if(!empty($_POST["prodid"])) {
 	$qtyremaining = ($_POST["qtyremaining"]);
 	$qtysold = ($_POST["qtysold"]);
 	$month = ($_POST["month"]);
+	$week = ($_POST["week"]);
 }
 $modify = "UPDATE SALES SET  
 prodname = '$prodname',
@@ -33,7 +34,8 @@ category = '$category',
 price = '$price',
 qtyremaining = '$qtyremaining',
 qtysold = '$qtysold',
-month = '$month'
+month = '$month',
+week = '$week'
 WHERE prodid = '$prodid'";
 
 $removed = @mysqli_query($conn, $modify);

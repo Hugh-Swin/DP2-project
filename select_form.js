@@ -14,6 +14,10 @@ modifyButton.onclick = function(){
 		createModifyForm();
 }
 
+exportButton.onclick = function(){
+	location.href = "./export_as_csv.php";
+}
+
 function createModifyForm(){
 var f = document.createElement("form");
 f.setAttribute('id',"modifyForm");
@@ -25,22 +29,40 @@ i.setAttribute('type',"text");
 i.setAttribute('name',"prodid");
 i.defaultValue = "Product Id"
 
-
 var i2 = document.createElement("input"); //input element, text
 i2.setAttribute('type',"text");
 i2.setAttribute('name',"prodname");
 i2.defaultValue = "Product Name"
 
-var i2 = document.createElement("input"); //input element, text
-i2.setAttribute('type',"text");
-i2.setAttribute('name',"category");
-i2.defaultValue = "Category"
+var i3 = document.createElement("input"); //input element, text
+i3.setAttribute('type',"text");
+i3.setAttribute('name',"category");
+i3.defaultValue = "Category"
 
+var i4 = document.createElement("input"); //input element, text
+i4.setAttribute('type',"text");
+i4.setAttribute('name',"price");
+i4.defaultValue = "Price"
 
+var i5 = document.createElement("input"); //input element, text
+i5.setAttribute('type',"text");
+i5.setAttribute('name',"qtyremaining");
+i5.defaultValue = "Qty Remaining"
 
+var i6 = document.createElement("input"); //input element, text
+i6.setAttribute('type',"text");
+i6.setAttribute('name',"qtysold");
+i6.defaultValue = "Qty Sold"
 
+var i7 = document.createElement("input"); //input element, text
+i7.setAttribute('type',"text");
+i7.setAttribute('name',"month");
+i7.defaultValue = "Month"
 
-
+var i8 = document.createElement("input"); //input element, text
+i8.setAttribute('type',"text");
+i8.setAttribute('name',"week");
+i8.defaultValue = "Week"
 
 var s = document.createElement("input"); //input element, Submit button
 s.setAttribute('type',"submit");
@@ -48,6 +70,13 @@ s.setAttribute('value',"Modify");
 
 f.appendChild(i);
 f.appendChild(i2);
+f.appendChild(i3);
+f.appendChild(i4);
+f.appendChild(i5);
+f.appendChild(i6);
+f.appendChild(i7);
+f.appendChild(i8);
+
 f.appendChild(s);
 
 document.getElementById('currentForm').appendChild(f);
