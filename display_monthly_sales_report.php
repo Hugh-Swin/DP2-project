@@ -35,13 +35,13 @@ else if($selectMonth == "all" && $selectWeek !== "all"){ #Month all, not week
 $result = mysqli_query($conn, $sql);
 
 if ($result->num_rows > 0) {
-    echo "<table><tr><th>ID</th>
+    echo "<table cellspacing='1'><tr><th>ID</th>
 	<th>Name</th>
 	<th>Category</th>
 	<th>Price</th>
 	<th>Remaining Stock</th>
 	<th>Sold</th>
-	<th>Month</th></tr>
+	<th>Month</th>
 	<th>Week</th></tr>";
 	while($row = $result->fetch_assoc()) {
         echo "<tr><td>".$row["prodid"]."</td>

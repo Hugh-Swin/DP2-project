@@ -5,11 +5,23 @@
 <meta charset="utf-8" />
 <meta name="description" content="This document allows a user to view, edit and create new entries for the pharmacy products"/>
 <meta name="authors" content="Hugh Rutland, Daniel Mastrowicz, Basem Gazzaz, Patrick Carty"/>
+<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
+
 <h2>People Health Pharmacy (PHP) Inc.</h2>
 <h3>Sales Reporting and Prediction System</h3>
+ <nav>
+  <button id="addButton" type="button">Add</button>
+  <button id="modifyButton" type="button">Modify</button>
+  <button id="removeButton" type="button">Remove</button>
+  <button id="exportButton" type="button">Export</button>
+</nav> 
 <p><a href="./reset_database.php">Start/Reset the Database (Drops table, then re-adds with default data)</a></p>
+</br>
+
+<div id="currentForm">
+</div>
 </br>
 
 <form id="modify" method="post" novalidate="novalidate" action="">
@@ -27,8 +39,19 @@
 </select> 
 		<input type="submit" id="change" value="Display"/>
 </form>
-
+</br>
 <!-- implement drop down box to select which month data is from here -->
+
+
+
+
+
+
+
+
+
+
+
 <?php
 	include_once "display_monthly_sales_report.php";
 ?>
@@ -43,6 +66,7 @@
 <!-- forms to edit table go here -->
 </br>
 </br>
+
 <form id="remove" method="post" novalidate="novalidate" action="remove_process.php">
 	<fieldset>
 		<h4>Write the ID number of the product you would like to delete the entry for in the text box below:</h4>
@@ -64,5 +88,6 @@
 		<p><input type="submit" id="submit" value="Submit"/><p>
 	</fieldset>
 </form>
+<script type="text/javascript" src="./select_form.js"></script>
 </body>
 </html>
