@@ -13,7 +13,7 @@
 </table>
 </form>
 </div>
-</body> 
+
 
 <?php
 session_start();
@@ -29,4 +29,5 @@ if (!$conn)
 
 mysqli_close($conn);
 ?>
+</body>
 </HTML>
