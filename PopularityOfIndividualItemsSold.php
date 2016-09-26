@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <head> 
-<title>Display Monthly Sales Reports</title> 
+<title></title> 
 </head> 
 
 <body>
@@ -21,7 +21,7 @@ if (!$conn)
 
 $sqlstring = "SELECT * FROM SALES";
 $queryResult = @mysqli_query($conn, $sqlstring)
-		Or die ("<p>Unable to query the inventory table.</p>"."<p>Error code ". mysqli_errno($conn). ": ".mysqli_error($conn)). "</p>";
+		Or die ("<p>Unable to query the SALES table.</p>"."<p>Error code ". mysqli_errno($conn). ": ".mysqli_error($conn)). "</p>";
 
 echo "<form>Please select a iten Sold: <select name='item'><option>All</option>";
 	
@@ -38,7 +38,7 @@ mysqli_close($conn);
 
 if(isset($_GET['item']) && $_GET['item']!="")
 {
-	$conn = @mysqli_connect($server, $user, $pass, $dbname);
+	$conn = @mysqli_connect($server, $user, $pass, $dbname)
 	or die ("<p>Failed to connect to server.</p>". "<p>Error code ". mysqli_connect_errno().": ". mysqli_connect_error()). "</p>";
 	
 	if($_GET['item']=="All")
@@ -51,7 +51,6 @@ if(isset($_GET['item']) && $_GET['item']!="")
 	}
 	
 	$queryResult = @mysqli_connect($server, $user, $pass, $dbname);
-	or die ("<p>Failed to connect to server.</p>". "<p>Error code ". mysqli_connect_errno().": ". mysqli_connect_error()). "</p>";
 	
 	echo "<hr>";
 
@@ -72,3 +71,4 @@ if(isset($_GET['item']) && $_GET['item']!="")
 ?>
 </body>
 </html>
+
