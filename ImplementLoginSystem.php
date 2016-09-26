@@ -1,8 +1,7 @@
-<HTML"> 
+<HTML> 
 <head>
 
 </head>
-<body style="background-color:lightgrey">
 <tr><td><a href='Porj1.php'><h2 align="center">HOME</h2></a></td></tr>
 <h2 align="center">Enter your Emaail address and Password:</h2>
 <div align="center">
@@ -17,9 +16,6 @@
 </div>
 </body> 
 
-<?php 
-session_start();
-
 <?php
 session_start();
 $server = "127.0.0.1";
@@ -27,7 +23,8 @@ $user = "root";
 $pass = "pass";
 $dbname = "salesdb";
 $conn = mysqli_connect($server, $user, $pass, $dbname);
-if (!$conn) {
+if (!$conn) 
+{
 	echo "<p>Database connection failure</p>";
 }
 // check if user enter all feiled.
@@ -62,6 +59,6 @@ if (isset($_GET['email_address'])
 		echo'incorrect Email Address OR Password';
 	}
 }
-mysqli_close($DBConnect);
+mysqli_close($conn);
 ?>
 </HTML>
