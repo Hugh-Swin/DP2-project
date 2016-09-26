@@ -16,6 +16,7 @@
   <button id="modifyButton" type="button">Modify</button>
   <button id="removeButton" type="button">Remove</button>
   <button id="exportButton" type="button">Export</button>
+  <button id="predictSingleButton" type="button" >Predict</button>
 </nav> 
 <p><a href="./reset_database.php">Start/Reset the Database (Drops table, then re-adds with default data)</a></p>
 </br>

@@ -2,6 +2,7 @@ var removeButton = document.getElementById('removeButton');
 var addButton = document.getElementById('addButton');
 var modifyButton = document.getElementById('modifyButton');
 var exportButton = document.getElementById('exportButton');
+var predictSingleButton = document.getElementById('predictSingleButton');
 
 
 //Create remove form on remove button click
@@ -10,6 +11,10 @@ removeButton.onclick = function(){
 		createRemoveForm();
 }
 
+predictSingleButton.onclick = function(){
+		clearForms();
+		createPredictSingleForm();
+}
 
 modifyButton.onclick = function(){
 		clearForms();
@@ -163,6 +168,28 @@ i.defaultValue = "Product Id"
 var s = document.createElement("input"); //input element, Submit button
 s.setAttribute('type',"submit");
 s.setAttribute('value',"Delete");
+
+f.appendChild(i);
+f.appendChild(s);
+
+document.getElementById('currentForm').appendChild(f);
+}
+
+function createPredictSingleForm(){
+var f = document.createElement("form");
+f.setAttribute('id',"predictSingleForm");
+f.setAttribute('method',"post");
+f.setAttribute('action',"predict_single_monthly_sales.php");
+
+var i = document.createElement("input"); //input element, text
+i.setAttribute('type',"text");
+i.setAttribute('name',"prodname");
+i.defaultValue = "Product Name"
+
+
+var s = document.createElement("input"); //input element, Submit button
+s.setAttribute('type',"submit");
+s.setAttribute('value',"Predict");
 
 f.appendChild(i);
 f.appendChild(s);
