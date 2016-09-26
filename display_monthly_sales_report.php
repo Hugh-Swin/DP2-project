@@ -13,7 +13,8 @@ $pass = "pass";
 $dbname = "salesdb";
 
 $conn = mysqli_connect($server, $user, $pass, $dbname);
-if (!$conn) {
+if (!$conn)
+{
 	echo "<p>Database connection failure</p>";
 }
 $selectMonth = "";
@@ -23,18 +24,26 @@ $selectWeek = isset($_POST["selectWeek"]) ? $_POST["selectWeek"] : 'all';
 #Check if its empty, set it to "all" if it is, make it always display the data.
 #Have to do this, as the sql query CANNOT contain "all"
 $sql = "SELECT * FROM SALES";
-if($selectMonth !== "all" && $selectWeek !== "all"){ #Neither are all
+if($selectMonth !== "all" && $selectWeek !== "all")
+{
+	#Neither are all
 	$sql = "SELECT * FROM SALES WHERE month = '$selectMonth' AND week = '$selectWeek'";
 }
-else if($selectMonth == "all" && $selectWeek !== "all"){ #Month all, not week
+else if($selectMonth == "all" && $selectWeek !== "all")
+{
+	#Month all, not week
 	$sql = "SELECT * FROM SALES WHERE week = '$selectWeek'";
-}else if($selectMonth !== "all" && $selectWeek == "all"){#Month is not all, week is.
+}
+else if($selectMonth !== "all" && $selectWeek == "all")
+{
+	#Month is not all, week is.
 	$sql = "SELECT * FROM SALES WHERE month = '$selectMonth'";
 }
 
 $result = mysqli_query($conn, $sql);
 
-if ($result->num_rows > 0) {
+if ($result->num_rows > 0) 
+{
     echo "<table cellspacing='1'><tr><th>ID</th>
 	<th>Name</th>
 	<th>Category</th>
@@ -43,15 +52,17 @@ if ($result->num_rows > 0) {
 	<th>Sold</th>
 	<th>Month</th>
 	<th>Week</th></tr>";
-	while($row = $result->fetch_assoc()) {
-        echo "<tr><td>".$row["prodid"]."</td>
-		<td>".$row["prodname"]."</td> 
-		<td>".$row["category"]."</td> 
-		<td>".$row["price"]."</td>
-		<td>".$row["qtyremaining"]." </td>
-		<td>".$row["qtysold"]." </td>
-		<td>".$row["month"]." </td>
-		<td>".$row["week"]." </td>
+	while($row = $result->fetch_assoc())
+	{
+       		 echo "<tr><td>".$row["prodid"].
+		"</td>
+			<td>".$row["prodname"]."</td> 
+			<td>".$row["category"]."</td> 
+			<td>".$row["price"]."</td>
+			<td>".$row["qtyremaining"]." </td>
+			<td>".$row["qtysold"]." </td>
+			<td>".$row["month"]." </td>
+			<td>".$row["week"]." </td>
 		</tr>";
     }
 	echo "</table>";
