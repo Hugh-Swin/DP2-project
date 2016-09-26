@@ -19,11 +19,11 @@ if (!$conn)
 // set up the SQL query string - we will retrieve the whole
 // record that matches the name
 
-$sqlstring = "SELECT * FROM SALES";
+$sqlstring = "SELECT * FROM Sales";
 $queryResult = @mysqli_query($conn, $sqlstring)
 		Or die ("<p>Unable to query the SALES table.</p>"."<p>Error code ". mysqli_errno($conn). ": ".mysqli_error($conn)). "</p>";
 
-echo "<form>Please select a iten Sold: <select name='item'><option>All</option>";
+echo "<form>Please select a item Sold: <select name='item'><option>All</option>";
 	
 $row = mysqli_fetch_row($queryResult);
 	
@@ -47,7 +47,7 @@ if(isset($_GET['item']) && $_GET['item']!="")
 	}
 	else
 	{
-		$sqlstring = "select * from SALES where make='".$_GET['item']."'";
+		$sqlstring = "select * from SALES where prodname='".$_GET['item']."'";
 	}
 	
 	$queryResult = @mysqli_connect($server, $user, $pass, $dbname);
@@ -71,4 +71,3 @@ if(isset($_GET['item']) && $_GET['item']!="")
 ?>
 </body>
 </html>
-
