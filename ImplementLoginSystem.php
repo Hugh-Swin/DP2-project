@@ -43,12 +43,12 @@ if (isset($_GET['email_address'])
 	
 	//check admin number and password in the database.
 	$SQLstring = ("SELECT * FROM admin WHERE email_address = '$email' AND password = '$pass'");
-	$result = mysqli_query($DBConnect,$SQLstring);
-	$count= mysqli_num_rows($result);	
+	$result = mysqli_query($conn,$SQLstring);
+	$count= @mysqli_num_rows($result);	
 	
-	$queryResult = @mysqli_query($DBConnect, $SQLstring)
+	$queryResult = @mysqli_query($conn, $SQLstring)
 		Or die ("<p>Unable query frome admin table.</p>"."<p>Error code ".
-		mysqli_errno($DBConnect). ": ".mysqli_error($DBConnect)). "</p>";
+		mysqli_errno($conn). ": ".mysqli_error($conn)). "</p>";
 	if ($count == 1)
 	{
 		setcookie("email_address", $email);	
