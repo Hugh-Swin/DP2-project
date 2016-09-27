@@ -38,7 +38,7 @@ if(isset($_GET['email_address'])
 		$pass = $_GET['password'];
 				
 		// check Password are provided.
-		else if ($pass & $confirm_pass == '')
+		if ($pass == '')
 		{
 			echo '<p>Please enter the Password.</p>';
 		}
@@ -68,6 +68,7 @@ if(isset($_GET['email_address'])
 		Or die ("<p>Unable to insert data into the admin table.</p>"."<p>Error all feiled requaer". mysqli_errno($DBConnect). ": ".mysqli_error($DBConnect)). "</p>";
 	
 		setcookie("email_address", $email);	
+		
 		// if registeratio sseuccful go to booking page.
 		header("Location:Proj1.php");		
 }
