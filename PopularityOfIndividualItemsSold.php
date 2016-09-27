@@ -28,7 +28,7 @@ echo "<form>Please select a item Sold: <select name='item'><option>All</option>"
 $row = mysqli_fetch_row($queryResult);
 	
 	while ($row) {
-		echo "<option value='".$row[0]."'>".$row[0]."</option>";	
+		echo "<option value='".$row[1]."'>".$row[1]."</option>";	
 		$row = mysqli_fetch_row($queryResult);
 	}
 
@@ -47,25 +47,35 @@ if(isset($_GET['item']) && $_GET['item']!="")
 	}
 	else
 	{
-		$sqlstring = "select * from SALES where prodname='".$_GET['item']."'";
+		$sqlstring = "select * from SALES where prodname ='".$_GET['item']."'";
 	}
 	
-	$queryResult = @mysqli_connect($server, $user, $pass, $dbname);
-	
-	echo "<hr>";
+	$result = mysqli_query($conn, $sqlstring);
 
-	echo "<table width='100%' border='1'>";
-	echo "<th>prodname</th><th>price</th><th>qtyremaining</th><th>qtysold</th>";
-		$row = mysqli_fetch_row($queryResult);
-		
-		while ($row) {
-			echo "<tr><td>{$row[1]}</td>";
-			echo "<td>{$row[2]}</td>";
-			echo "<td>{$row[3]}</td>";
-			echo "<td>{$row[4]}</td></tr>";
-			$row = mysqli_fetch_row($queryResult);
+	if ($result->num_rows > 0) 
+	{
+		echo 
+		"<table cellspacing='1'>
+		<tr>
+		<th>Name</th>
+		<th>Category</th>
+		<th>Price</th>
+		<th>Remaining Stock</th>
+		<th>Item Sold</th>
+		</tr>";
+		while($row = $result->fetch_assoc())
+		{
+			echo 
+			"<tr>
+				<td>".$row["prodname"]."</td> 
+				<td>".$row["category"]."</td> 
+				<td>".$row["price"]."</td>
+				<td>".$row["qtyremaining"]." </td>
+				<td>".$row["qtysold"]." </td>
+			</tr>";
 		}
-	echo "</table>";
+		echo "</table>";
+	}
 	mysqli_close($conn);
 }
 ?>
