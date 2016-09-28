@@ -1,11 +1,5 @@
-<!DOCTYPE html>
-<head> 
-<title>Display Monthly Sales Reports</title> 
-</head> 
-
-<body>
 <?php
-session_start();
+@session_start();
 
 $server = "127.0.0.1";
 $user = "root";
@@ -54,8 +48,7 @@ if ($result->num_rows > 0)
 	<th>Week</th></tr>";
 	while($row = $result->fetch_assoc())
 	{
-       		 echo "<tr><td>".$row["prodid"].
-		"</td>
+       		 echo "<tr><td>".$row["prodid"]."</td>
 			<td>".$row["prodname"]."</td> 
 			<td>".$row["category"]."</td> 
 			<td>".$row["price"]."</td>

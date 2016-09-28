@@ -3,12 +3,18 @@ var addButton = document.getElementById('addButton');
 var modifyButton = document.getElementById('modifyButton');
 var exportButton = document.getElementById('exportButton');
 var predictSingleButton = document.getElementById('predictSingleButton');
+var popularItemsButton = document.getElementById('popularItemsButton');
 
 
 //Create remove form on remove button click
 removeButton.onclick = function(){
 		clearForms();
 		createRemoveForm();
+}
+
+popularItemsButton.onclick = function(){
+		clearForms();
+		createPopularItemsForm();
 }
 
 predictSingleButton.onclick = function(){
@@ -174,6 +180,30 @@ f.appendChild(s);
 
 document.getElementById('currentForm').appendChild(f);
 }
+
+function createPopularItemsForm(){
+var f = document.createElement("form");
+f.setAttribute('id',"popularItemsForm");
+f.setAttribute('method',"post");
+f.setAttribute('action', "");
+
+var i = document.createElement("input"); //input element, text
+i.setAttribute('type',"text");
+i.setAttribute('name',"popularItem");
+i.setAttribute('id',"popularItem");
+i.defaultValue = "All"
+
+
+var s = document.createElement("input"); //input element, Submit button
+s.setAttribute('type',"submit");
+s.setAttribute('value',"Get Popularity");
+
+f.appendChild(i);
+f.appendChild(s);
+
+document.getElementById('currentForm').appendChild(f);
+}
+
 
 function createPredictSingleForm(){
 var f = document.createElement("form");

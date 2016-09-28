@@ -17,14 +17,15 @@
   <button id="removeButton" type="button">Remove</button>
   <button id="exportButton" type="button">Export</button>
   <button id="predictSingleButton" type="button" >Predict</button>
+  <button id="popularItemsButton" type="button" >Popular Items</button>
 </nav> 
 <p><a href="./reset_database.php">Start/Reset the Database (Drops table, then re-adds with default data)</a></p>
-</br>
-
+</div>
 <div id="currentForm">
 </div>
-</br>
-
+<?php
+	include_once "PopularityOfIndividualItemsSold.php";
+?>
 <form id="modify" method="post" novalidate="novalidate" action="">
 <select name="selectMonth" id="selectMonth">
 	<option value="all">All</option>
@@ -45,9 +46,6 @@
 <?php
 	include_once "display_monthly_sales_report.php";
 ?>
-<div id="salestable">
-
-</div>
 </br>
 </br>
 <script type="text/javascript" src="./select_form.js"></script>
