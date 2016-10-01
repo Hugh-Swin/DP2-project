@@ -253,7 +253,7 @@ $data = "INSERT INTO Sales (prodname, category, price, qtyremaining, qtysold, mo
 	('Ear Cleaners', 'Misc', '6', '148', '62', 'Jul','4'),
 	('Cotton Swabs', 'Misc', '4', '119', '31', 'Jul','4')
 ";
-
+//Add setup for user table
 if (mysqli_query($conn, $data)) {
 	echo "<p>New records added successfully</p>";
 } else {
