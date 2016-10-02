@@ -18,5 +18,7 @@ if (mysqli_query($conn, $reset)) {
 
 require_once ("database_setup.php");
 
+header("Location:Proj1.php");
+
 mysqli_close($conn);
 ?>

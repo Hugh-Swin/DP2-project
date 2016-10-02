@@ -4,7 +4,7 @@ var modifyButton = document.getElementById('modifyButton');
 var exportButton = document.getElementById('exportButton');
 var predictSingleButton = document.getElementById('predictSingleButton');
 var popularItemsButton = document.getElementById('popularItemsButton');
-
+var popularGroupButton = document.getElementById('popularGroupButton');
 
 //Create remove form on remove button click
 removeButton.onclick = function(){
@@ -34,6 +34,11 @@ addButton.onclick = function(){
 
 exportButton.onclick = function(){
 	location.href = "./export_as_csv.php";
+}
+
+popularGroupButton.onclick = function(){
+		clearForms();
+		createPopularGroupForm();
 }
 
 function createAddForm(){
@@ -193,7 +198,6 @@ i.setAttribute('name',"popularItem");
 i.setAttribute('id',"popularItem");
 i.defaultValue = "All"
 
-
 var s = document.createElement("input"); //input element, Submit button
 s.setAttribute('type',"submit");
 s.setAttribute('value',"Get Popularity");
@@ -204,6 +208,27 @@ f.appendChild(s);
 document.getElementById('currentForm').appendChild(f);
 }
 
+function createPopularGroupForm(){
+var f = document.createElement("form");
+f.setAttribute('id',"popularGroupForm");
+f.setAttribute('method',"post");
+f.setAttribute('action', "");
+
+var i = document.createElement("input"); //input element, text
+i.setAttribute('type',"text");
+i.setAttribute('name',"popularGroup");
+i.setAttribute('id',"popularGroup");
+i.defaultValue = "All"
+
+var s = document.createElement("input"); //input element, Submit button
+s.setAttribute('type',"submit");
+s.setAttribute('value',"Get Category Popularity");
+
+f.appendChild(i);
+f.appendChild(s);
+
+document.getElementById('currentForm').appendChild(f);
+}
 
 function createPredictSingleForm(){
 var f = document.createElement("form");

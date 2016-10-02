@@ -18,14 +18,20 @@
   <button id="exportButton" type="button">Export</button>
   <button id="predictSingleButton" type="button" >Predict</button>
   <button id="popularItemsButton" type="button" >Popular Items</button>
+  <button id="popularGroupButton" type="button" >Popular Category</button>
 </nav> 
 <p><a href="./reset_database.php">Start/Reset the Database (Drops table, then re-adds with default data)</a></p>
 </div>
 <div id="currentForm">
 </div>
 <?php
-	include_once "PopularityOfIndividualItemsSold.php";
+	include_once "popularity_of_individual_items.php";
 ?>
+
+<?php
+	include_once "popularity_of_group.php";
+?>
+
 <form id="modify" method="post" novalidate="novalidate" action="">
 <select name="selectMonth" id="selectMonth">
 	<option value="all">All</option>
