@@ -17,7 +17,7 @@ if (mysqli_query($conn, $sales)) {
 }
 //table of all products
 //add week data for sprint2
-$data = "INSERT INTO Sales (prodname, category, price, qtyremaining, qtysold, month,week)
+$data = "INSERT INTO Sales (prodname, category, price, qtyremaining, qtysold, month, week)
 	VALUES 
 	('Fancy Shampoo', 'Hair', '13', '65', '25', 'Jun','1'),
 	('Average Shampoo', 'Hair', '8', '195', '95', 'Jun','1'),
@@ -251,12 +251,34 @@ $data = "INSERT INTO Sales (prodname, category, price, qtyremaining, qtysold, mo
 	
 	('Q-Tips', 'Misc', '5', '164', '96', 'Jul','4'),
 	('Ear Cleaners', 'Misc', '6', '148', '62', 'Jul','4'),
-	('Cotton Swabs', 'Misc', '4', '119', '31', 'Jul','4')
-";
-//Add setup for user table
+	('Cotton Swabs', 'Misc', '4', '119', '31', 'Jul','4')";
+
 if (mysqli_query($conn, $data)) {
 	echo "<p>New records added successfully</p>";
 } else {
 	echo "Error: " . $data . "<br>" . mysqli_error($conn);
 }
+	
+$users = "CREATE TABLE Users (
+	userid INT(5) AUTO_INCREMENT PRIMARY KEY,
+	email_address VARCHAR(20),
+	password VARCHAR(20)
+	)";
+
+if (mysqli_query($conn, $users)) {
+	echo "<p>Table 'Users' created succesfully</p>";
+} else {
+	echo "<p>Error creating table 'Users'</p>";
+}	
+
+$userdata = "INSERT INTO Users (email_address, password)
+	VALUES 
+	('test@testemail.com', '1234')";
+	
+if (mysqli_query($conn, $userdata)) {
+	echo "<p>New records added successfully</p>";
+} else {
+	echo "Error: " . $userdata . "<br>" . mysqli_error($conn);
+}
+
 ?>
