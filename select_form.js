@@ -5,6 +5,7 @@ var exportButton = document.getElementById('exportButton');
 var predictSingleButton = document.getElementById('predictSingleButton');
 var popularItemsButton = document.getElementById('popularItemsButton');
 var popularGroupButton = document.getElementById('popularGroupButton');
+var predictGroupButton = document.getElementById('predictGroupButton');
 
 //Create remove form on remove button click
 removeButton.onclick = function(){
@@ -39,6 +40,11 @@ exportButton.onclick = function(){
 popularGroupButton.onclick = function(){
 		clearForms();
 		createPopularGroupForm();
+}
+
+predictGroupButton.onclick = function(){
+		clearForms();
+		createPredictGroupForm();
 }
 
 function createAddForm(){
@@ -230,6 +236,28 @@ f.appendChild(s);
 document.getElementById('currentForm').appendChild(f);
 }
 
+function createPredictGroupForm(){
+var f = document.createElement("form");
+f.setAttribute('id',"predictGroupForm");
+f.setAttribute('method',"post");
+f.setAttribute('action', "");
+
+var i = document.createElement("input"); //input element, text
+i.setAttribute('type',"text");
+i.setAttribute('name',"predictGroup");
+i.setAttribute('id',"predictGroup");
+i.defaultValue = "All"
+
+var s = document.createElement("input"); //input element, Submit button
+s.setAttribute('type',"submit");
+s.setAttribute('value',"Predict Category Sales");
+
+f.appendChild(i);
+f.appendChild(s);
+
+document.getElementById('currentForm').appendChild(f);
+}
+
 function createPredictSingleForm(){
 var f = document.createElement("form");
 f.setAttribute('id',"predictSingleForm");
@@ -240,7 +268,6 @@ var i = document.createElement("input"); //input element, text
 i.setAttribute('type',"text");
 i.setAttribute('name',"prodname");
 i.defaultValue = "Product Name"
-
 
 var s = document.createElement("input"); //input element, Submit button
 s.setAttribute('type',"submit");

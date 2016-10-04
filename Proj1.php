@@ -16,7 +16,8 @@
   <button id="modifyButton" type="button">Modify</button>
   <button id="removeButton" type="button">Remove</button>
   <button id="exportButton" type="button">Export</button>
-  <button id="predictSingleButton" type="button" >Predict</button>
+  <button id="predictSingleButton" type="button" >Predict Individual Sales</button>
+  <button id="predictGroupButton" type="button" >Predict Category Sales</button>
   <button id="popularItemsButton" type="button" >Popular Items</button>
   <button id="popularGroupButton" type="button" >Popular Category</button>
 </nav> 
@@ -30,6 +31,10 @@
 
 <?php
 	include_once "popularity_of_group.php";
+?>
+
+<?php
+	include_once "predict_group_sales.php";
 ?>
 
 <form id="modify" method="post" novalidate="novalidate" action="">
