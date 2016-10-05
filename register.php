@@ -50,9 +50,9 @@ if(isset($_GET['email_address'])
 
 		//chrck the email addrees uniquel
 		// check if user enter Email Address already exists in the database.
-		else if	($sql ="SELECT * FROM admin WHERE email ='$email_address'");
+		else if	($sql ="SELECT * FROM admin WHERE email ='$email'");
 		$queryResult = @mysqli_query($conn, $sql)
-		Or die ("<p>Unable to check data from the admin table.</p>"."<p>Error all feiled requaer". mysqli_errno($DBConnect). ": ".mysqli_error($DBConnect)). "</p>";
+		Or die ("<p>Unable to check data from the admin table.</p>"."<p>Error all feiled requaer". mysqli_errno($conn). ": ".mysqli_error($conn)). "</p>";
 			if (mysqli_num_rows($queryResult)>0)
 			{
 				echo '<p>admin email address you enter already exists!</p>';
@@ -65,7 +65,7 @@ if(isset($_GET['email_address'])
 				,'".$_GET['password']."');";
 		
 		$queryResult = @mysqli_query($conn, $sqlLesting)
-		Or die ("<p>Unable to insert data into the admin table.</p>"."<p>Error all feiled requaer". mysqli_errno($DBConnect). ": ".mysqli_error($DBConnect)). "</p>";
+		Or die ("<p>Unable to insert data into the admin table.</p>"."<p>Error all feiled requaer". mysqli_errno($conn). ": ".mysqli_error($conn)). "</p>";
 	
 		setcookie("email_address", $email);	
 		
