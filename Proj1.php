@@ -20,6 +20,7 @@
   <button id="predictGroupButton" type="button" >Predict Category Sales</button>
   <button id="popularItemsButton" type="button" >Popular Items</button>
   <button id="popularGroupButton" type="button" >Popular Category</button>
+  <button id="logoutButton" type="button" >Log out</button>
 </nav> 
 <p><a href="./reset_database.php">Start/Reset the Database (Drops table, then re-adds with default data)</a></p>
 </div>
