@@ -52,7 +52,7 @@ if (isset($_GET['email_address'])
 	if ($count == 1)
 	{
 		setcookie("email_address", $email);	
-		header("Location:booking.php");
+		header("Location:Proj1.php");
 	}
 	else
 	{
